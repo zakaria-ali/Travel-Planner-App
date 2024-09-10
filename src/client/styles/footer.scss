@@ -1,0 +1,48 @@
+@use './variables';
+
+// Strat of the styling for the footer
+footer {
+  background-color: variables.$secondaryColor;
+  color: variables.$primaryTextColor;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 16px;
+  
+  .footerContent {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+    p {
+      margin: 5px 0;
+    }
+  }
+
+  .footerLinks {
+    a {
+      color: variables.$primaryTextColor;
+      text-decoration: none;
+      margin: 0 10px;
+      background:
+      linear-gradient(
+        to right,
+        variables.$primaryColor,
+        variables.$primaryColor
+      ),
+      linear-gradient(
+        to right,
+        rgba(255, 0, 0, 1),
+        rgba(255, 0, 180, 1),
+        rgba(0, 100, 200, 1)
+      );
+      background-size: 100% 3px, 0 3px;
+      background-position: 100% 100%, 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size 400ms;
+
+      &:hover {
+        background-size: 0 3px, 100% 3px;
+      }
+    }
+  }
+}
+// End of the styling for the footer  

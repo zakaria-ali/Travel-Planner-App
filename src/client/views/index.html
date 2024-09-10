@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Travel Planner</title>
+</head>
+
+<body>
+    <!-- The Header -->
+    <header>
+        <div class="headerContent">
+            <!-- Logo -->
+            <img src="<%= require('../images/logo.png') %>" alt="Logo">
+
+            <!-- Header Marquee-->
+            <div class="marqueeContainer">
+                <div class="marquee paused"></div>
+            </div>
+
+            <!-- Navigation Bar -->
+            <nav id="navContainer">
+                <ul class="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a id="printAllTripsButton">Print All</a></li>
+                    <li><a id="exportAllTripsPdfButton">Export All</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- The Main Content -->
+    <main>
+        <!-- Form Section -->
+        <!-- The id is for the Home link in the nav bar -->
+        <section id="home">
+            <div class="form">
+                <!-- Header -->
+                <div class="title">Add a Trip</div>
+                <div class="subtitle">Please fill out your travel details</div>
+
+                <!-- Location Input -->
+                <div class="inputContainer ic1">
+                    <input id="location" class="input" type="text" placeholder=" " required />
+                    <div class="cut"></div>
+                    <label for="location" class="placeholder">Location</label>
+                </div>
+
+                <!-- Departure Date Input -->
+                <div class="inputContainer ic2">
+                    <input id="departureDate" class="input" type="date" placeholder=" " required />
+                    <div class="cut"></div>
+                    <label for="departureDate" class="placeholder">Departure Date</label>
+                </div>
+
+                <!-- End Date Input -->
+                <div class="inputContainer ic2">
+                    <input id="endDate" class="input" type="date" placeholder=" " required />
+                    <div class="cut cut-short"></div>
+                    <label for="endDate" class="placeholder">End Date</label>
+                </div>
+
+                <!-- Hotel Name Input -->
+                <div class="inputContainer ic2">
+                    <input id="hotelName" class="input" type="text" placeholder=" " />
+                    <div class="cut cut-short"></div>
+                    <label for="hotelName" class="placeholder">Hotel Name</label>
+                </div>
+
+                <!-- Submit Button Input -->
+                <button id="travelFormButton" type="submit" class="submit">Add Trip</button>
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="resultSection">
+            <div id="tripsList"></div>
+        </section>
+    </main>
+
+    <!-- The Footer -->
+    <footer>
+        <div class="footerContent">
+            <p>&copy; 2024 Travel Planner. All rights reserved.</p>
+            <p>Made with 💙 by Zakaria Wildali</p>
+            <div class="footerLinks">
+                <a href="https://www.linkedin.com/in/zakaria-wildali-b6798325a/" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/zakaria-ali" target="_blank">GitHub</a> |
+                <a href="mailto:zakaria.wildali.7@gmail.com">Contact</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
+
+</html>

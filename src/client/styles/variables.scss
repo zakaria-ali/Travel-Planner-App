@@ -1,0 +1,27 @@
+$primaryColor: #0170BC;
+$secondaryColor: #333333;
+$hrPrimaryBackground: blue;
+$primaryTextColor: white;
+$expiredTextColor: rgb(255 0 0 / 41%);
+$tripDetailsTextColor: #ffffff9e;
+$inputNotPlaceholderColor: #808097;
+$inputFocusPlaceholderColor: #dc2f55;
+$inputBackgroundColor: #303245;
+$inputCutBackgroundColor: #15172b;
+$headerBoxShadowColor: #0170bc91;
+$buttonsBoxShadow:  0 0 5px $primaryColor,
+                    0 0 25px $primaryColor;
+$buttonsBoxShadowOnHover:   0 0 5px #01274D,
+                            0 0 25px cyan, 0 0 50px #01274D,
+                            0 0 100px cyan, 0 0 200px #01274D;
+$tripDetailsButtonsShadowBackground: hsl(0deg 0% 0% / 0.25);
+$tripDetailsButtonsEdgeBackground: linear-gradient(
+    to left, 
+    hsl(210deg 100% 40%) 0%, 
+    hsl(210deg 100% 60%) 8%, 
+    hsl(210deg 100% 60%) 92%, 
+    hsl(210deg 100% 40%) 100%
+);
+$buttonsTransition:   all 0.5s cubic-bezier(0.4, 0, 1, 1);
+$marqueeFontFamily: "Handjet", sans-serif;
+$tripDetailsFontFamily: "MockFlowFont";

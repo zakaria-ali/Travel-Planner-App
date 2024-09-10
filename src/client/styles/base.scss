@@ -1,0 +1,56 @@
+// Import SCSS files
+@use './footer.scss';
+@use './form.scss';
+@use './header.scss';
+@use './resets.scss';
+@use './result.scss';
+@use './variables.scss';
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(
+    to bottom,
+    variables.$secondaryColor, /* Dark gray color */ 
+    #555555, /* Intermediate gray for a smoother transition */ 
+    variables.$primaryColor /* Blue color for a subtle pop */
+  );
+  padding-top: 6rem; /* To prevent content overlap */
+
+  #home {
+    margin: auto;
+    width: fit-content;
+  }
+
+  .marqueeContainer {
+    width: 100vw;
+    overflow: hidden;
+    white-space: nowrap;
+    font-family: variables.$marqueeFontFamily;
+  }
+  
+  .marquee {
+    font-size: 3rem;
+    padding-left: 60vw;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+    animation-play-state: running;
+
+    &:hover {
+      animation-play-state: paused;
+      cursor: default;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translatex(-100%);
+  }
+  100% {
+    transform: translatex(0);
+  }
+}

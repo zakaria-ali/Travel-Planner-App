@@ -1,0 +1,126 @@
+@use './variables.scss';
+
+// Start of the styling for the Form 
+.form {
+  background-color: variables.$secondaryColor;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 580px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: rgba(45, 35, 66, .4) 0 5px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #242323 0 -10px 0 inset;
+  
+  // Start of the styling for the Headers 
+  .title {
+    color: variables.$primaryTextColor;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+  
+  .subtitle {
+    color: #eee;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  // End of the styling for the Headers 
+  
+  // Start of the styling for the input Fields 
+  .inputContainer {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    
+    &.ic1 {
+      margin-top: 40px;
+    }
+    
+    &.ic2 {
+      margin-top: 30px;
+    }
+  }
+  
+  .input {
+    background-color: variables.$inputBackgroundColor;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: variables.$primaryTextColor;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+    
+    &:focus ~ .cut,
+    &:not(:placeholder-shown) ~ .cut {
+      transform: translateY(8px);
+    }
+    
+    &:focus ~ .placeholder,
+    &:not(:placeholder-shown) ~ .placeholder {
+      transform: translateY(-30px) translateX(10px) scale(0.75);
+    }
+    
+    &:not(:placeholder-shown) ~ .placeholder {
+      color: variables.$inputNotPlaceholderColor;
+    }
+    
+    &:focus ~ .placeholder {
+      color: variables.$inputFocusPlaceholderColor;
+    }
+  } 
+
+  .cut {
+    background-color: variables.$inputCutBackgroundColor;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 76px;
+    
+    &.cut-short {
+      width: 50px;
+    }
+  }
+  
+  .placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+  // End of the styling for the input Fields
+
+  // Strat of the styling for the submit button
+  .submit {
+    background-color: variables.$primaryColor;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: variables.$primaryTextColor;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    text-align: center;
+    width: 100%;
+    box-shadow: variables.$buttonsBoxShadow;
+    transition: variables.$buttonsTransition;
+    
+    &:hover {
+      box-shadow: variables.$buttonsBoxShadowOnHover;
+    }
+  }
+  // End of the styling for the submit button
+}
+// Start of the styling for the Form 

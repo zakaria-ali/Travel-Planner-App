@@ -1,0 +1,276 @@
+@use './variables.scss';
+
+// Start of the result section style
+section#resultSection {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 2s ease-in; /* Smooth transition */
+    margin: 2rem;
+
+    #tripsList{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      row-gap: 2rem;
+    }
+  }
+// End of the result section style
+
+// Start of the card container style
+.card {
+    position: relative;
+    width: 625px;
+    height: 500px;  
+    border-radius: 35px;
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid variables.$secondaryColor;
+  
+    &__image {      
+      width: 100%;
+      height: 470px;
+    }
+  
+    &__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;      
+      border-radius: 35px;    
+      background-color: variables.$secondaryColor;      
+      transform: translateY(100%);
+      transition: .2s ease-in-out;
+    }
+  
+    &:hover &__overlay {
+      transform: translateY(0);
+    }
+  
+    &__header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      padding: 2em 2em 1em 2em;
+      border-radius: 35px 0 0 0;    
+      background-color: variables.$secondaryColor;
+      transform: translateY(-100%);
+      transition: .2s ease-in-out;
+    }
+  
+    &__arc {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: 100%;
+      right: 0;      
+      z-index: 1;
+  
+      path {
+        fill: variables.$secondaryColor;
+        d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+      }
+    }       
+  
+    &:hover &__header {
+      transform: translateY(0);
+    }
+  
+    &__thumb {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;      
+      border-radius: 50%;      
+    }
+  
+    &__title {
+      font-size: 1em;
+      margin: 0 0 .3em;
+      color: variables.$primaryTextColor;
+    }
+  
+    &__status {
+      font-size: .8em;
+      color: variables.$tripDetailsTextColor;
+    }
+  
+    &__description {
+      color: variables.$tripDetailsTextColor;
+      font-family: variables.$tripDetailsFontFamily;   
+    }   
+
+    // Start of the styling for the Hr element 
+    .divider {
+      display: flex;
+      
+      &:before,
+      &:after {
+        content: "";
+        flex: 1;
+      }
+    }
+    
+    .line {
+      align-items: center;
+      margin: 0 -1rem 1em -1em;
+      font-weight: bold;
+      color: variables.$tripDetailsTextColor;
+      
+      &:before,
+      &:after {
+        height: 1px;
+        margin: 0 1em;
+      }
+    }
+
+    .glow {
+      &:before,
+      &:after {
+        height: 6px;
+        -webkit-filter: blur(5px);
+        border-radius: 5px;
+      }
+      
+      &:before {
+        background: linear-gradient(to right, variables.$hrPrimaryBackground, variables.$primaryColor);
+      }
+      
+      &:after {
+        background: linear-gradient(to left, variables.$hrPrimaryBackground, variables.$primaryColor);
+      }
+    }
+    // End of the styling for the Hr element 
+    
+    // Start of the styling for the header in the Details of each trip
+    h4 {
+      color: variables.$tripDetailsTextColor;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 2rem;
+      font-family: variables.$tripDetailsFontFamily;   
+    }
+    // End of the styling for the header in the Details of each trip
+
+    // Start of the styling for the Details of each trip
+    .tripInfo {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 1rem 1rem 1rem;
+    }
+
+    #countryInfo {
+      margin: 1rem;
+      color: variables.$tripDetailsTextColor;
+      font-family: variables.$tripDetailsFontFamily;   
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      row-gap: 1rem;
+      column-gap: 6rem;
+    }
+    // End of the styling for the Details of each trip
+
+    // Start of the styling for the buttons of each trip
+    .btns {
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem 1rem 1rem;  
+    }
+
+    .btnPushable {
+      position: relative;
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      outline-offset: 4px;
+      transition: filter 250ms;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    
+      &:hover {
+        filter: brightness(110%);
+        -webkit-filter: brightness(110%);
+    
+        .btnFront {
+          transform: translateY(-6px);
+          transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+        }
+    
+        .btnShadow {
+          transform: translateY(4px);
+          transition: transform 250ms cubic-bezier(.3, .7, .4, 1.5);
+        }
+      }
+    
+      &:active {
+        .btnFront {
+          transform: translateY(-2px);
+          transition: transform 34ms;
+        }
+    
+        .btnShadow {
+          transform: translateY(1px);
+          transition: transform 34ms;
+        }
+      }
+    
+      &:focus:not(:focus-visible) {
+        outline: none;
+      }
+    }
+    
+    .btnShadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: variables.$tripDetailsButtonsShadowBackground;
+      will-change: transform;
+      transform: translateY(2px);
+      transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    }
+    
+    .btnEdge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: variables.$tripDetailsButtonsEdgeBackground;
+    }
+    
+    .btnFront {
+      display: block;
+      position: relative;
+      padding: 12px 27px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      color: variables.$primaryTextColor;
+      background: variables.$primaryColor;
+      will-change: transform;
+      transform: translateY(-4px);
+      transition: transform 600ms cubic-bezier(.3, .7, .4, 1);
+    }  
+    // End of the styling for the buttons of each trip
+
+    // Start of the styling for the "Trip Expired!" text 
+    .expiredText {
+      position: absolute;
+      font-size: 130px;
+      top: 2rem;
+      color: variables.$expiredTextColor;
+      text-align: center;
+    }  
+    // End of the styling for the "Trip Expired!" text 
+  }
+  // Start of the card container style
+
+  // Start of the styling for the expired trips
+.expired {
+  opacity: 0.6; 
+}
