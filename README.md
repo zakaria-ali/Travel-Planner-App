@@ -36,8 +36,8 @@ This project provides an enhanced user experience by integrating multiple APIs a
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/zakaria-ali/Travel-App.git
-   cd Travel-App
+   git clone https://github.com/zakaria-ali/Travel-Planner-App.git
+   cd Travel-Planner-App
 
    ```
 
