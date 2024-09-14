@@ -31,6 +31,9 @@ This Travel Planning Application allows users to seamlessly plan and manage trip
 
 This project provides an enhanced user experience by integrating multiple APIs and offering convenient trip management features.
 
+<p align="center">
+Click on the image to go to the project video!
+</p>
 [![Watch the video](./ProjectImage.png)](https://drive.google.com/file/d/1F3rO8w2tRjElJtTsOvrLRLdnnU11XQIJ/view?usp=sharing)
 
 ## How to Run the App
